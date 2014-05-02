@@ -1278,7 +1278,7 @@
 
 ## Modules
 
-** We can ignore this section since the ES6 transpiler adds 'use strict' for us, doesn't require the trailing `!` and ember forces us to use dashs for file names. 
+** Note: ** We can ignore this section since the ES6 transpiler adds 'use strict' for us, doesn't require the trailing `!` and ember forces us to use dashs for file names. 
 
   - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
