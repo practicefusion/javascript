@@ -1291,7 +1291,7 @@
   - Always declare `'use strict';` at the top of the module.
 
     ```javascript
-    // fancyInput/fancyInput.js
+    // fancy-input/fancy-input.js
 
     !function(global) {
       'use strict';
