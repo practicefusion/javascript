@@ -1283,36 +1283,17 @@
 
 ## Modules
 
-** Note: ** We can ignore this section since the ES6 transpiler adds 'use strict' for us, doesn't require the trailing `!` and ember forces us to use dashs for file names. 
-
-  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
-  - Add a method called noConflict() that sets the exported module to the previous version and returns this one.
-  - Always declare `'use strict';` at the top of the module.
-
-    ```javascript
-    // fancy-input/fancy-input.js
-
-    !function(global) {
-      'use strict';
-
-      var previousFancyInput = global.FancyInput;
-
-      function FancyInput(options) {
-        this.options = options || {};
-      }
-
-      FancyInput.noConflict = function noConflict() {
-        global.FancyInput = previousFancyInput;
-        return FancyInput;
-      };
-
-      global.FancyInput = FancyInput;
-    }(this);
-    ```
+** Note: ** te original modules section was removed since rules didn't apply. We use the ES6 transpiler, that adds 'use strict' for us, doesn't require the trailing `!` and ember forces us to use dashes for file names. 
 
 **[⬆ back to top](#table-of-contents)**
 
+## File Names
+
+** Note: ** this section isn't part of the original AirBnB guide. 
+
+- We use file-names-with-dashes because that's required for templates and components by Ember and EAK and ember-cli do that by default. 
+
+**[⬆ back to top](#table-of-contents)**
 
 ## jQuery
 
