@@ -1065,7 +1065,6 @@
     // good
     this._firstName = 'Panda';
     ```
-
   - When saving a reference to `this` use `_this`.
 
     ```javascript
@@ -1094,6 +1093,19 @@
     }
     ```
 
+  - If you need to use an outside scope inside a function, use .bind(this) instead of var _this= this
+  ```javascript
+  // bad
+  var _this = this;
+  return function() {
+    console.log(_this.propertyName);
+  }
+
+  // good 
+  return function() {
+    console.log(this.propertyName);
+  }.bind(this)
+  ```
   - Name your functions. This is helpful for stack traces.
 
     ```javascript
