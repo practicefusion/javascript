@@ -132,6 +132,8 @@
     var items = [];
     ```
 
+    *NOTE:* using an `Em.A()` or `Ember.A()` is discourage and we should favor the literal syntax array creation. See [Em.A](http://emberjs.com/api/#method_A).
+
   - If you don't know array length use Array#push.
 
     ```javascript
