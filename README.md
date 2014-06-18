@@ -27,6 +27,7 @@
   1. [Modules](#modules)
   1. [jQuery](#jquery)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
+  1. [ECMAScript 6 Compatibility](#ecmascript-6-compatibility)
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
@@ -734,7 +735,7 @@
     function() {
     ∙var name;
     }
-    
+
     // bad
     function() {
     ∙∙var name;
@@ -1283,7 +1284,7 @@
 
 ## Modules
 
-** Note: ** We can ignore this section since the ES6 transpiler adds 'use strict' for us, doesn't require the trailing `!` and ember forces us to use dashs for file names. 
+** Note: ** We can ignore this section since the ES6 transpiler adds 'use strict' for us, doesn't require the trailing `!` and ember forces us to use dashs for file names.
 
   - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - The file should be named-with-dashes, live in a folder with the same name, and match the name of the single export.
@@ -1315,9 +1316,9 @@
 
 ## File Names
 
-** Note: ** this section isn't part of the original AirBnB guide. 
+** Note: ** this section isn't part of the original AirBnB guide.
 
-- We use file-names-with-dashes because that's required for templates and components by Ember and EAK and ember-cli do that by default. 
+- We use file-names-with-dashes because that's required for templates and components by Ember and EAK and ember-cli do that by default.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1386,6 +1387,14 @@
 ## ECMAScript 5 Compatibility
 
   - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
+
+**[⬆ back to top](#table-of-contents)**
+
+## ECMAScript 6 Compatibility
+
+### Promises
+
+PENDING. We need more information about this. Specially the use or not use of `catch`.
 
 **[⬆ back to top](#table-of-contents)**
 
