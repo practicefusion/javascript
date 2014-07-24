@@ -1061,7 +1061,7 @@
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - When saving a reference to `this` use `_this`. Never use `Function#bind(this)` if the closure is available. \[[jsperf](http://jsperf.com/bind-vs-jquery-proxy/60)\]
 
     ```javascript
     // bad
@@ -1086,6 +1086,13 @@
       return function() {
         console.log(_this);
       };
+    }
+    
+    // bad
+    function() {
+      return function() {
+        console.log(this);
+      }.bind(this);
     }
     ```
 
