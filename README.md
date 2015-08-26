@@ -1113,7 +1113,7 @@
         console.log(_this);
       };
     }
-    
+
     // bad
     function() {
       return function() {
@@ -1348,6 +1348,73 @@
 - We use file-names-with-dashes because that's required for templates and components by Ember and EAK and ember-cli do that by default.
 
 **[⬆ back to top](#table-of-contents)**
+
+## Rest Parameters
+
+** Note: ** this section isn't part of the original AirBnB guide. It comes from [Ember's Styleguide](https://github.com/emberjs/ember.js/blob/master/STYLEGUIDE.md)
+
+Since [Babel implements](https://babeljs.io/repl/#?experimental=true&playground=true&evaluate=true&loose=false&spec=false&code=function%20foo\(...args\)%20%7B%0A%20%20%0A%7D) Rest parameters in a non-leaking matter you should use them whenever applicable.
+
+```javascript
+function foo(...args) {
+  args.forEach((item) => {
+    console.log(item);
+  });
+}
+```
+**[⬆ back to top](#table-of-contents)**
+
+
+## Destructuring
+
+** Note: ** this section isn't part of the original AirBnB guide. It comes from [Ember's Styleguide](https://github.com/emberjs/ember.js/blob/master/STYLEGUIDE.md)
+
+When decomposing simple arrays or objects, prefer [destructuring](http://babeljs.io/docs/learn-es6/#destructuring).
+
+```javascript
+// array destructuring
+var fullName = 'component:foo-bar';
+var [
+  first,
+  last
+] = fullName.split(':');
+```
+
+```javascript
+// object destructuring
+var person = {
+  firstName: 'Stefan',
+  lastName: 'Penner'
+};
+
+var {
+  firstName,
+  lastName
+} = person;
+```
+**[⬆ back to top](#table-of-contents)**
+
+
+## Comments
+
+** Note: ** this section isn't part of the original AirBnB guide. It comes from [Ember's Styleguide](https://github.com/emberjs/ember.js/blob/master/STYLEGUIDE.md)
+
++ Use [YUIDoc](http://yui.github.io/yuidoc/syntax/index.html) comments for
+  documenting functions.
++ Use `//` for single line comments.
+
+```javascript
+function foo() {
+  var bar = 5;
+
+  // multiplies `bar` by 2.
+  fooBar(bar);
+
+  console.log(bar);
+}
+```
+**[⬆ back to top](#table-of-contents)**
+
 
 ## jQuery
 
