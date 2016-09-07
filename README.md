@@ -1759,7 +1759,11 @@
 
 ## Comments
 
++ Use [YUIDoc](http://yui.github.io/yuidoc/syntax/index.html) comments for
+  documenting functions.
+
   <a name="comments--multiline"></a><a name="17.1"></a>
+
   - [17.1](#comments--multiline) Use `/** ... */` for multi-line comments.
 
     ```javascript
@@ -2660,32 +2664,11 @@
 
 ## File Names
 
-    ** Note: ** this section isn't part of the original AirBnB guide.
+** Note: ** this section isn't part of the original AirBnB guide.
 
-    - We use file-names-with-dashes because that's required for templates and components by Ember and EAK and ember-cli do that by default.
+- We use file-names-with-dashes because that's required for templates and components by Ember and EAK and ember-cli do that by default.
 
 **[⬆ back to top](#table-of-contents)**
-
-## Comments
-
-    ** Note: ** this section isn't part of the original AirBnB guide. It comes from [Ember's Styleguide](https://github.com/emberjs/ember.js/blob/master/STYLEGUIDE.md)
-
-    + Use [YUIDoc](http://yui.github.io/yuidoc/syntax/index.html) comments for
-      documenting functions.
-    + Use `//` for single line comments.
-
-    ```javascript
-    function foo() {
-      var bar = 5;
-
-      // multiplies `bar` by 2.
-      fooBar(bar);
-
-      console.log(bar);
-    }
-    ```
-**[⬆ back to top](#table-of-contents)**
-
 
 ## jQuery
 
