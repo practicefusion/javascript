@@ -1753,13 +1753,12 @@
     }
     ```
 
-
 **[⬆ back to top](#table-of-contents)**
 
 
 ## Comments
 
-+ Use [YUIDoc](http://yui.github.io/yuidoc/syntax/index.html) comments for
+  - Use [YUIDoc](http://yui.github.io/yuidoc/syntax/index.html) comments for
   documenting functions.
 
   <a name="comments--multiline"></a><a name="17.1"></a>
@@ -2535,7 +2534,7 @@
     ```
 
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
-  - [22.7](#naming--camelCase-default-export) Use camelCase when you export-default a function. Your filename should be identical to your function's name.
+  - [22.7](#naming--camelCase-default-export) Use camelCase when you export-default a function. Your filename should be the dashed equivalent of your function's name.
 
     ```javascript
     function makeStyleGuide() {
@@ -2666,7 +2665,7 @@
 
 ** Note: ** this section isn't part of the original AirBnB guide.
 
-- We use file-names-with-dashes because that's required for templates and components by Ember and EAK and ember-cli do that by default.
+- We use file-names-with-dashes because that is the required format for Ember templates and components, and the default for all files generated with ember-cli.
 
 **[⬆ back to top](#table-of-contents)**
 
