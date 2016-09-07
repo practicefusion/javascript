@@ -296,7 +296,7 @@
     const items = [];
     ```
 
-    *NOTE:* using an `Em.A()` or `Ember.A()` is discourage and we should favor the literal syntax array creation. See [Em.A](http://emberjs.com/api/#method_A).
+    *NOTE:* using an `Em.A()` or `Ember.A()` is discouraged and we should favor the literal syntax array creation. See [Em.A](http://emberjs.com/api/#method_A).
 
 
   <a name="arrays--push"></a><a name="4.2"></a>
@@ -2496,7 +2496,7 @@
     ```
 
   <a name="naming--filename-matches-export"></a><a name="22.6"></a>
-  - [22.6](#naming--filename-matches-export) A base filename should exactly match the name of its default export.
+  - [22.6](#naming--filename-matches-export) A base filename should match the dashed name of its default export.
 
     ```javascript
     // file 1 contents
@@ -2525,10 +2525,9 @@
     import insideDirectory from './insideDirectory/index'; // requiring the index file explicitly
 
     // good
-    import CheckBox from './CheckBox'; // PascalCase export/import/filename
-    import fortyTwo from './fortyTwo'; // camelCase export/import/filename
-    import insideDirectory from './insideDirectory'; // camelCase export/import/directory name/implicit "index"
-    // ^ supports both insideDirectory.js and insideDirectory/index.js
+    import CheckBox from './check-box'; // PascalCase export/import, dashed filename
+    import fortyTwo from './forty-two'; // camelCase export/import, dashed filename
+    import insideDirectory from './inside-directory'; // camelCase export/import, dashed filename
     ```
 
   <a name="naming--camelCase-default-export"></a><a name="22.7"></a>
@@ -2661,57 +2660,11 @@
 
 ## File Names
 
-** Note: ** this section isn't part of the original AirBnB guide.
+    ** Note: ** this section isn't part of the original AirBnB guide.
 
-- We use file-names-with-dashes because that's required for templates and components by Ember and EAK and ember-cli do that by default.
+    - We use file-names-with-dashes because that's required for templates and components by Ember and EAK and ember-cli do that by default.
 
 **[⬆ back to top](#table-of-contents)**
-
-## Rest Parameters
-
-** Note: ** this section isn't part of the original AirBnB guide. It comes from [Ember's Styleguide](https://github.com/emberjs/ember.js/blob/master/STYLEGUIDE.md)
-
-Since [Babel implements](https://babeljs.io/repl/#?experimental=true&playground=true&evaluate=true&loose=false&spec=false&code=function%20foo\(...args\)%20%7B%0A%20%20%0A%7D) Rest parameters in a non-leaking matter you should use them whenever applicable.
-
-```javascript
-function foo(...args) {
-  args.forEach((item) => {
-    console.log(item);
-  });
-}
-```
-**[⬆ back to top](#table-of-contents)**
-
-
-## Destructuring
-
-    ** Note: ** this section isn't part of the original AirBnB guide. It comes from [Ember's Styleguide](https://github.com/emberjs/ember.js/blob/master/STYLEGUIDE.md)
-
-    When decomposing simple arrays or objects, prefer [destructuring](http://babeljs.io/docs/learn-es6/#destructuring).
-
-    ```javascript
-    // array destructuring
-    var fullName = 'component:foo-bar';
-    var [
-      first,
-      last
-    ] = fullName.split(':');
-    ```
-
-    ```javascript
-    // object destructuring
-    var person = {
-      firstName: 'Stefan',
-      lastName: 'Penner'
-    };
-
-    var {
-      firstName,
-      lastName
-    } = person;
-    ```
-**[⬆ back to top](#table-of-contents)**
-
 
 ## Comments
 
