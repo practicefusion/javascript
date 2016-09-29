@@ -2229,7 +2229,7 @@
     ```
 
   <a name="commas--dangling"></a><a name="19.2"></a>
-  - [19.2](#commas--dangling) Additional trailing comma: **No.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`requireTrailingComma`](http://jscs.info/rule/disallowTrailingComma)
+  - [19.2](#commas--dangling) Additional trailing comma: **No.** eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html) jscs: [`disallowTrailingComma`](http://jscs.info/rule/disallowTrailingComma)
 
     ```
     // good
