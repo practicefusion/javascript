@@ -1,6 +1,6 @@
-# Airbnb JavaScript Style Guide() {
+# Practice Fusion JavaScript Style Guide() {
 
-*A mostly reasonable approach to JavaScript*
+*A mostly reasonable approach to JavaScript, forked and modified from [Airbnb's JavaScript style guide](//github.com/airbnb/javascript).*
 
 # Table of Contents
 
