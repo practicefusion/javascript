@@ -1,6 +1,6 @@
 module.exports = {
   plugins: [
-    'react'
+    'react',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -8,7 +8,7 @@ module.exports = {
     },
   },
   ecmaFeatures: {
-    jsx: true
+    jsx: true,
   },
 
   // View link below for react rules documentation
@@ -18,13 +18,29 @@ module.exports = {
     // http://eslint.org/docs/rules/jsx-quotes
     'jsx-quotes': ['error', 'prefer-double'],
 
+    'class-methods-use-this': ['error', {
+      exceptMethods: [
+        'render',
+        'getInitialState',
+        'getDefaultProps',
+        'getChildContext',
+        'componentWillMount',
+        'componentDidMount',
+        'componentWillReceiveProps',
+        'shouldComponentUpdate',
+        'componentWillUpdate',
+        'componentDidUpdate',
+        'componentWillUnmount',
+      ],
+    }],
+
     // Prevent missing displayName in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
     'react/display-name': ['off', { ignoreTranspilerName: false }],
 
     // Forbid certain propTypes (any, array, object)
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
-    'react/forbid-prop-types': ['off', { forbid: ['any', 'array', 'object'] }],
+    'react/forbid-prop-types': ['error', { forbid: ['any', 'array', 'object'] }],
 
     // Enforce boolean attributes notation in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
@@ -67,7 +83,7 @@ module.exports = {
 
     // Prevent duplicate props in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
-    'react/jsx-no-duplicate-props': ['off', { ignoreCase: true }],
+    'react/jsx-no-duplicate-props': ['error', { ignoreCase: true }],
 
     // Prevent usage of unwrapped JSX strings
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
@@ -114,7 +130,7 @@ module.exports = {
 
     // Prevent usage of dangerous JSX properties
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger.md
-    'react/no-danger': 'off',
+    'react/no-danger': 'warn',
 
     // Prevent usage of deprecated methods
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
@@ -170,7 +186,8 @@ module.exports = {
 
     // Restrict file extensions that may be required
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-extension.md
-    'react/require-extension': ['error', { extensions: ['.jsx', '.js'] }],
+    // deprecated in favor of import/extensions
+    'react/require-extension': ['off', { extensions: ['.jsx', '.js'] }],
 
     // Require render() methods to return something
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
@@ -250,8 +267,43 @@ module.exports = {
 
     // Prevent problem with children and props.dangerouslySetInnerHTML
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
-    // TODO: enable, semver-major
-    'react/no-danger-with-children': 'off',
+    'react/no-danger-with-children': 'error',
+
+    // Prevent unused propType definitions
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unused-prop-types.md
+    'react/no-unused-prop-types': ['error', {
+      customValidators: [
+      ],
+      skipShapeProps: true,
+    }],
+
+    // Require style prop value be an object or var
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md
+    'react/style-prop-object': 'error',
+
+    // Prevent invalid characters from appearing in markup
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
+    'react/no-unescaped-entities': 'error',
+
+    // Prevent passing of children as props
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md
+    'react/no-children-prop': 'error',
+
+    // Validate whitespace in and around the JSX opening and closing brackets
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md
+    'react/jsx-tag-spacing': ['error', {
+      closingSlash: 'never',
+      beforeSelfClosing: 'always',
+      afterOpening: 'never'
+    }],
+
+    // Prevent usage of Array index in keys
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
+    'react/no-array-index-key': 'error',
+
+    // Enforce a defaultProps definition for every prop that is not a required prop
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
+    'react/require-default-props': 'error',
   },
 
   settings: {

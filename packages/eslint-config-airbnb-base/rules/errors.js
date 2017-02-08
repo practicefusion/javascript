@@ -1,7 +1,17 @@
 module.exports = {
   rules: {
     // require trailing commas in multiline object literals
-    'comma-dangle': ['error', 'always-multiline'],
+    'comma-dangle': ['error', {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'always-multiline',
+    }],
+
+    // Disallow await inside of loops
+    // http://eslint.org/docs/rules/no-await-in-loop
+    'no-await-in-loop': 'error',
 
     // disallow assignment in conditional expressions
     'no-cond-assign': ['error', 'always'],
@@ -63,10 +73,6 @@ module.exports = {
     // disallow irregular whitespace outside of strings and comments
     'no-irregular-whitespace': 'error',
 
-    // disallow negation of the left operand of an in expression
-    // TODO: deprecated in favor of no-unsafe-negation
-    'no-negated-in-lhs': 'off',
-
     // disallow the use of object properties of the global object (Math and JSON) as functions
     'no-obj-calls': 'error',
 
@@ -82,8 +88,7 @@ module.exports = {
 
     // Disallow template literal placeholder syntax in regular strings
     // http://eslint.org/docs/rules/no-template-curly-in-string
-    // TODO: enable, semver-major
-    'no-template-curly-in-string': 'off',
+    'no-template-curly-in-string': 'error',
 
     // Avoid code that looks like two expressions but is actually one
     // http://eslint.org/docs/rules/no-unexpected-multiline
@@ -99,6 +104,9 @@ module.exports = {
     // disallow negating the left operand of relational operators
     // http://eslint.org/docs/rules/no-unsafe-negation
     'no-unsafe-negation': 'error',
+    // disallow negation of the left operand of an in expression
+    // deprecated in favor of no-unsafe-negation
+    'no-negated-in-lhs': 'off',
 
     // disallow comparisons with the value NaN
     'use-isnan': 'error',
@@ -108,6 +116,7 @@ module.exports = {
     'valid-jsdoc': 'off',
 
     // ensure that the results of typeof are compared against a valid string
-    'valid-typeof': 'error'
+    // http://eslint.org/docs/rules/valid-typeof
+    'valid-typeof': ['error', { requireStringLiterals: true }],
   }
 };

@@ -33,7 +33,7 @@ module.exports = {
 
     // ensure imports point to files/modules that can be resolved
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
-    'import/no-unresolved': ['error', { commonjs: true }],
+    'import/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
 
     // ensure named imports coupled with named exports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md#when-not-to-use-it
@@ -66,8 +66,23 @@ module.exports = {
 
     // Forbid the use of extraneous packages
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
+    // paths are treated both as absolute paths, and relative to process.cwd()
     'import/no-extraneous-dependencies': ['error', {
-      devDependencies: false,
+      devDependencies: [
+        'test/**', // tape, common npm pattern
+        'tests/**', // also common npm pattern
+        'spec/**', // mocha, rspec-like pattern
+        '**/__tests__/**', // jest pattern
+        'test.js', // repos with a single test file
+        'test-*.js', // repos with multiple top-level test files
+        '**/*.test.js', // tests where the extension denotes that it is a test
+        '**/webpack.config.js', // webpack config
+        '**/webpack.config.*.js', // webpack config
+        '**/rollup.config.js', // rollup config
+        '**/gulpfile.js', // gulp config
+        '**/gulpfile.*.js', // gulp config
+        '**/Gruntfile', // grunt config
+      ],
       optionalDependencies: false,
     }],
 
@@ -93,8 +108,13 @@ module.exports = {
     // Style guide:
 
     // disallow non-import statements appearing before import statements
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md
+    'import/first': ['error', 'absolute-first'],
+
+    // disallow non-import statements appearing before import statements
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md
-    'import/imports-first': ['error', 'absolute-first'],
+    // deprecated: use `import/first`
+    'import/imports-first': 'off',
 
     // disallow duplicate imports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
@@ -107,8 +127,10 @@ module.exports = {
 
     // Ensure consistent use of file extension within the import path
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
-    // TODO: enable when https://github.com/benmosher/eslint-plugin-import/issues/390 is resolved
-    'import/extensions': ['off', 'never'],
+    'import/extensions': ['error', 'always', {
+      js: 'never',
+      jsx: 'never',
+    }],
 
     // Enforce a convention in module import order
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
@@ -129,5 +151,43 @@ module.exports = {
     // Restrict which files can be imported in a given folder
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-restricted-paths.md
     'import/no-restricted-paths': 'off',
+
+    // Forbid modules to have too many dependencies
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/max-dependencies.md
+    'import/max-dependencies': ['off', { max: 10 }],
+
+    // Forbid import of modules using absolute paths
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-absolute-path.md
+    'import/no-absolute-path': 'error',
+
+    // Forbid require() calls with expressions
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-dynamic-require.md
+    'import/no-dynamic-require': 'error',
+
+    // prevent importing the submodules of other modules
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-internal-modules.md
+    'import/no-internal-modules': ['off', {
+      allow: [],
+    }],
+
+    // Warn if a module could be mistakenly parsed as a script by a consumer
+    // leveraging Unambiguous JavaScript Grammar
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/unambiguous.md
+    // this should not be enabled until this proposal has at least been *presented* to TC39.
+    // At the moment, it's not a thing.
+    'import/unambiguous': 'off',
+
+    // Forbid Webpack loader syntax in imports
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md
+    'import/no-webpack-loader-syntax': 'error',
+
+    // Prevent unassigned imports
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unassigned-import.md
+    // importing for side effects is perfectly acceptable, if you need side effects.
+    'import/no-unassigned-import': 'off',
+
+    // Prevent importing the default as if it were named
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-default.md
+    'import/no-named-default': 'error',
   },
 };

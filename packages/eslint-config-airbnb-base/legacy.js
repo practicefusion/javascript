@@ -16,6 +16,18 @@ module.exports = {
   ecmaFeatures: {},
   globals: {},
   rules: {
-    'comma-dangle': ['error', 'never']
+    'comma-dangle': ['error', 'never'],
+    'prefer-numeric-literals': 'off',
+    'no-restricted-properties': ['error', {
+      object: 'arguments',
+      property: 'callee',
+      message: 'arguments.callee is deprecated',
+    }, {
+      property: '__defineGetter__',
+      message: 'Please use Object.defineProperty instead.',
+    }, {
+      property: '__defineSetter__',
+      message: 'Please use Object.defineProperty instead.',
+    }],
   }
 };
