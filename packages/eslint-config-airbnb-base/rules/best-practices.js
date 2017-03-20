@@ -13,6 +13,12 @@ module.exports = {
     // specify the maximum cyclomatic complexity allowed in a program
     complexity: ['off', 11],
 
+    // enforce that class methods use "this"
+    // http://eslint.org/docs/rules/class-methods-use-this
+    'class-methods-use-this': ['error', {
+      exceptMethods: [],
+    }],
+
     // require return statements to either always or never specify values
     'consistent-return': 'error',
 
@@ -31,7 +37,7 @@ module.exports = {
 
     // require the use of === and !==
     // http://eslint.org/docs/rules/eqeqeq
-    eqeqeq: ['error', 'allow-null'],
+    eqeqeq: ['error', 'always', { null: 'ignore' }],
 
     // make sure for-in loops have an if statement
     'guard-for-in': 'error',
@@ -92,6 +98,8 @@ module.exports = {
     // disallow reassignments of native objects or read-only globals
     // http://eslint.org/docs/rules/no-global-assign
     'no-global-assign': ['error', { exceptions: [] }],
+    // deprecated in favor of no-global-assign
+    'no-native-reassign': 'off',
 
     // disallow implicit type conversions
     // http://eslint.org/docs/rules/no-implicit-coercion
@@ -139,10 +147,6 @@ module.exports = {
     // disallow use of multiline strings
     'no-multi-str': 'error',
 
-    // disallow reassignments of native objects
-    // TODO: deprecated in favor of no-global-assign
-    'no-native-reassign': 'off',
-
     // disallow use of new operator when not part of the assignment or comparison
     'no-new': 'error',
 
@@ -170,8 +174,29 @@ module.exports = {
     // disallow declaring the same variable more then once
     'no-redeclare': 'error',
 
+    // disallow certain object properties
+    // http://eslint.org/docs/rules/no-restricted-properties
+    'no-restricted-properties': ['error', {
+      object: 'arguments',
+      property: 'callee',
+      message: 'arguments.callee is deprecated',
+    }, {
+      property: '__defineGetter__',
+      message: 'Please use Object.defineProperty instead.',
+    }, {
+      property: '__defineSetter__',
+      message: 'Please use Object.defineProperty instead.',
+    }, {
+      object: 'Math',
+      property: 'pow',
+      message: 'Use the exponentiation operator (**) instead.',
+    }],
+
     // disallow use of assignment in return statement
     'no-return-assign': 'error',
+
+    // disallow redundant `return await`
+    'no-return-await': 'error',
 
     // disallow use of `javascript:` urls.
     'no-script-url': 'error',
@@ -214,6 +239,10 @@ module.exports = {
     // http://eslint.org/docs/rules/no-useless-escape
     'no-useless-escape': 'error',
 
+    // disallow redundant return; keywords
+    // http://eslint.org/docs/rules/no-useless-return
+    'no-useless-return': 'error',
+
     // disallow use of void operator
     // http://eslint.org/docs/rules/no-void
     'no-void': 'error',
@@ -224,15 +253,24 @@ module.exports = {
     // disallow use of the with statement
     'no-with': 'error',
 
+    // require using Error objects as Promise rejection reasons
+    // http://eslint.org/docs/rules/prefer-promise-reject-errors
+    // TODO: enable, semver-major
+    'prefer-promise-reject-errors': ['off', { allowEmptyReject: true }],
+
     // require use of the second argument for parseInt()
     radix: 'error',
+
+    // require `await` in `async function` (note: this is a horrible rule that should never be used)
+    // http://eslint.org/docs/rules/require-await
+    'require-await': 'off',
 
     // requires to declare all vars on top of their containing scope
     'vars-on-top': 'error',
 
     // require immediate function invocation to be wrapped in parentheses
     // http://eslint.org/docs/rules/wrap-iife.html
-    'wrap-iife': ['error', 'outside'],
+    'wrap-iife': ['error', 'outside', { functionPrototypeMethods: false }],
 
     // require or disallow Yoda conditions
     yoda: 'error'

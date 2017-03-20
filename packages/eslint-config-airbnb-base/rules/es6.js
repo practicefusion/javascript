@@ -14,10 +14,16 @@ module.exports = {
   rules: {
     // enforces no braces where they can be omitted
     // http://eslint.org/docs/rules/arrow-body-style
-    'arrow-body-style': ['error', 'as-needed'],
+    // TODO: enable requireReturnForObjectLiteral?
+    'arrow-body-style': ['error', 'as-needed', {
+      requireReturnForObjectLiteral: false,
+    }],
 
     // require parens in arrow function arguments
-    'arrow-parens': 'off',
+    // http://eslint.org/docs/rules/arrow-parens
+    'arrow-parens': ['error', 'as-needed', {
+      requireForBlockBody: true,
+    }],
 
     // require space before/after arrow function's arrow
     // http://eslint.org/docs/rules/arrow-spacing
@@ -49,7 +55,8 @@ module.exports = {
 
     // disallow importing from the same path more than once
     // http://eslint.org/docs/rules/no-duplicate-imports
-    'no-duplicate-imports': 'error',
+    // replaced by https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
+    'no-duplicate-imports': 'off',
 
     // disallow symbol constructor
     // http://eslint.org/docs/rules/no-new-symbol
@@ -101,9 +108,23 @@ module.exports = {
       ignoreReadBeforeAssign: true,
     }],
 
+    // Prefer destructuring from arrays and objects
+    // http://eslint.org/docs/rules/prefer-destructuring
+    // TODO: enable
+    'prefer-destructuring': ['off', {
+      array: true,
+      object: true,
+    }, {
+      enforceForRenamedProperties: false,
+    }],
+
+    // disallow parseInt() in favor of binary, octal, and hexadecimal literals
+    // http://eslint.org/docs/rules/prefer-numeric-literals
+    'prefer-numeric-literals': 'error',
+
     // suggest using Reflect methods where applicable
     // http://eslint.org/docs/rules/prefer-reflect
-    // TODO: enable
+    // TODO: enable?
     'prefer-reflect': 'off',
 
     // use rest parameters instead of arguments
@@ -133,6 +154,10 @@ module.exports = {
       ignoreMemberSort: false,
       memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
     }],
+
+    // require a Symbol description
+    // http://eslint.org/docs/rules/symbol-description
+    'symbol-description': 'error',
 
     // enforce usage of spacing in template strings
     // http://eslint.org/docs/rules/template-curly-spacing
