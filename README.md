@@ -2365,7 +2365,7 @@ Other Style Guides
     ```
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
-  - [18.12](#whitespace--max-len) Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+  - [18.12](#whitespace--max-len) Avoid having lines of code that are longer than 200 characters (including whitespace). Note: per [above](#strings--line-length), long strings are exempt from this rule, and should not be broken up. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
 
     > Why? This ensures readability and maintainability.
 
